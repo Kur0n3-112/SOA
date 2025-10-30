@@ -1,0 +1,5 @@
+Juan|García López|12345678A|juan.garcia|Segura123!
+María|Rodríguez González|87654321B|maria.rodriguez|Contrasena456
+Carlos|López Martínez|45678901C|carlos.lopez|Password789
+Ana|Martínez Pérez|23456789D|ana.martinez|MiClave321
+Pedro|Fernández Ruiz|56789012E|pedro.fernandez|Clave2024@
