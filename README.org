@@ -1,0 +1,2 @@
+*Practicas de Arquitecturas Orientadas a Servicios realizadas en 2025.
+Todas estas practicas han sido realizadas por mi Juan Riego Vila, y subidas a este github con la intención de compartir de manera mas eficiente este código con personas y profesores, cualquier uso de este código esta permitído ya que no es algo privativo, cualquier cosa se admiten pull request para la optimización de código y sugerencias.

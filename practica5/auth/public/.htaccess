@@ -1,7 +1,22 @@
+# Este archivo .htaccess controla reglas de reescritura dentro de la carpeta public/
+# Asegúrate de que el módulo mod_rewrite esté habilitado en Apache.
+
 <IfModule mod_rewrite.c>
+    # Desactiva MultiViews para evitar conflictos de rutas
     Options -Multiviews
+
+    # Activa el motor de reescritura
     RewriteEngine On
+
+    # Establece la base de la reescritura al subdirectorio /auth/public (ajústalo según tu configuración)
     RewriteBase /auth/public
+
+    # Si la ruta solicitada NO es un directorio...
     RewriteCond %{REQUEST_FILENAME} !-d
+    # ...y NO es un archivo físico...
     RewriteCond %{REQUEST_FILENAME} !-f
+    # Entonces normalmente aquí se añadiría una regla para redirigir a un front controller (por ejemplo index.php).
+    # Esta instalación no define una regla final explícita porque los endpoints son archivos reales .php.
+    # Ejemplo (si usaras un front controller):
+    # RewriteRule ^ index.php [QSA,L]
 </IfModule>

@@ -1,5 +1,12 @@
+# Este .htaccess en la raíz del módulo "auth" redirige todas las solicitudes a la carpeta public/
+# Esto impide el acceso directo a archivos dentro de src/ y otras carpetas sensibles.
+
 <IfModule mod_rewrite.c>
     RewriteEngine on
+
+    # Si se solicita la raíz (carpeta auth/), redirige a /public/
     RewriteRule ^$ public/ [L]
+
+    # Para cualquier otra ruta, la redirige a public/<ruta>
     RewriteRule (.*) public/$1 [L]
 </IfModule>
