@@ -31,6 +31,27 @@ require __DIR__ . '/../src/register.php';    // Controlador de registro (maneja 
     </div>
 
     <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value="<?= $inputs['nombre'] ?? '' ?>"
+               class="<?= error_class($errors, 'nombre') ?>">
+        <small><?= $errors['nombre'] ?? '' ?></small>
+    </div>
+
+    <div>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" id="apellidos" value="<?= $inputs['apellidos'] ?? '' ?>"
+               class="<?= error_class($errors, 'apellidos') ?>">
+        <small><?= $errors['apellidos'] ?? '' ?></small>
+    </div>
+
+    <div>
+        <label for="dni">DNI:</label>
+        <input type="text" name="dni" id="dni" value="<?= $inputs['dni'] ?? '' ?>"
+               class="<?= error_class($errors, 'dni') ?>">
+        <small><?= $errors['dni'] ?? '' ?></small>
+    </div>
+
+    <div>
         <label for="password">Password:</label>
         <!-- Por seguridad, no debería repoblarse la contraseña; se mantiene tal cual el ejemplo -->
         <input type="password" name="password" id="password" value="<?= $inputs['password'] ?? '' ?>"

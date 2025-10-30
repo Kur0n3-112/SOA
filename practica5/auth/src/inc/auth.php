@@ -13,19 +13,32 @@
  * @param string $email
  * @param string $username
  * @param string $password Contraseña en claro, se almacena hasheada
+ * @param string $nombre   Nombre(s) de la persona
+ * @param string $apellidos Apellidos de la persona
+ * @param string $dni      Documento de identidad (idealmente único)
  * @param bool   $is_admin Flag para marcar usuarios administradores
  * @return bool True si el INSERT se ejecuta correctamente
  */
-function register_user(string $email, string $username, string $password, bool $is_admin = false): bool
-{
-    $sql = 'INSERT INTO users(username, email, password, is_admin)
-            VALUES(:username, :email, :password, :is_admin)';
+function register_user(
+    string $email,
+    string $username,
+    string $password,
+    string $nombre,
+    string $apellidos,
+    string $dni,
+    bool $is_admin = false
+): bool {
+    $sql = 'INSERT INTO users(username, email, nombre, apellidos, dni, password, is_admin)
+            VALUES(:username, :email, :nombre, :apellidos, :dni, :password, :is_admin)';
 
     $statement = db()->prepare($sql);
 
     // Enlazamos parámetros con tipos estrictos
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->bindValue(':email', $email, PDO::PARAM_STR);
+    $statement->bindValue(':nombre', $nombre, PDO::PARAM_STR);
+    $statement->bindValue(':apellidos', $apellidos, PDO::PARAM_STR);
+    $statement->bindValue(':dni', $dni, PDO::PARAM_STR);
     // Se guarda el hash de la contraseña usando BCRYPT
     $statement->bindValue(':password', password_hash($password, PASSWORD_BCRYPT), PDO::PARAM_STR);
     $statement->bindValue(':is_admin', (int)$is_admin, PDO::PARAM_INT);

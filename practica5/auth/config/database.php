@@ -17,7 +17,6 @@
 //const DB_PASSWORD = 'root';
 
 // Para windows (xampp).
-// Host del servidor de base de datos (en docker-compose, el servicio puede llamarse "db")
 const DB_HOST = 'localhost';
 
 // Nombre de la base de datos a la que se conectará la aplicación
